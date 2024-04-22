@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
 
@@ -12,13 +12,24 @@ import { adjustIslandForScreenSize, adjustPlaneForScreenSize } from './helper'
 const Home = () => {
 	const [isRotating, setIsRotating] = useState(false)
 	const [currentStage, setCurrentStage] = useState(1)
+	const [isSpeedingUp, setIsSpeedingUp] = useState(false)
+	const [adjustedPlanePosition] = adjustPlaneForScreenSize()
+	const [planePosition, setPlanePosition] = useState(adjustedPlanePosition || [0, -1, 0])
 
-	const [planeScale, planePosition] = adjustPlaneForScreenSize()
+	const enterSecondStage = () => {
+		console.log(enterSecondStage)
+		setIsSpeedingUp(false)
+	}
 
 	return (
 		<section className="w-full h-screen relative">
-			<div className="absolute top-28 left-0 right-0 z-20 flex items-center justify-center">
-				{currentStage && <HomeInfo currentStage={currentStage} />}
+			<div className="absolute top-28 left-5 right-0 z-10 flex items-center justify-center">
+				<div>
+					{currentStage && <HomeInfo currentStage={currentStage} />}
+					<div className="mt-6 flex items-center justify-end">
+						<button className="neo-brutalism-white p-2 mr-4" onClick={(() => setIsSpeedingUp(true))}>Okay, so what?</button>
+					</div>
+				</div>
 			</div>
 			<Suspense fallback={<Loader />}>
 				<Canvas
@@ -35,10 +46,10 @@ const Home = () => {
 						isRotating={true}
 					/>
 					<Plane
-						planeScale={planeScale}
-						planePosition={planePosition}
-						isRotating={isRotating}
-						rotation={[0, 20, 0]}
+						isSpeedingUp={isSpeedingUp}
+						enterSecondStage={enterSecondStage}
+						position={planePosition}
+						setPosition={setPlanePosition}
 					/>
 				</Canvas>
 			</Suspense>
