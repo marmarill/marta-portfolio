@@ -2,7 +2,7 @@ import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
 
-import Island from '../models/Island'
+import Venus from '../models/Venus'
 import Sky from '../models/Sky'
 import Bird from '../models/Bird'
 import Plane from '../models/Plane'
@@ -56,27 +56,20 @@ const Home = () => {
 					<hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
 					{/* <pointLight /> */}
 					{/* <spotLight /> */}
-					<Bird />
-					<Sky
-						isRotating={isRotating}
-					/>
-					<Island
-						scale={islandScale}
-						position={islandPosition}
-						rotation={[0.1, 4.7077, 0]}
-						isRotating={isRotating}
-						setIsRotating={setIsRotating}
-						setCurrentStage={setCurrentStage}
-					/>
-					<Plane
-						planeScale={planeScale}
-						planePosition={planePosition}
-						isRotating={isRotating}
-						rotation={[0, 20, 0]}
-					/>
+					{/* <Bird /> */}
+					{/* <Sky */}
+					{/* isRotating={isRotating} */}
+					{/* /> */}
+					<Venus position={[0, -0.2, 4.8]} />
+					{/* <Plane
+							planeScale={planeScale}
+							planePosition={planePosition}
+							isRotating={isRotating}
+							rotation={[0, 20, 0]}
+						/> */}
 				</Canvas>
 			</Suspense>
-		</section>
+		</section >
 	)
 }
 
