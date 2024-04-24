@@ -2,11 +2,15 @@ import { Suspense, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
 
+import { ScrollControls } from '@react-three/drei'
+
 import Venus from '../models/Venus'
 import Sky from '../models/Sky'
 import Bird from '../models/Bird'
 import Plane from '../models/Plane'
 import HomeInfo from '../components/HomeInfo'
+
+
 
 const Home = () => {
 	const [isRotating, setIsRotating] = useState(false)
@@ -41,6 +45,7 @@ const Home = () => {
 	const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize()
 	const [planeScale, planePosition] = adjustPlaneForScreenSize()
 
+
 	return (
 		<section className="w-full h-screen relative">
 			<div className="absolute top-28 left-0 right-0 z-20 flex items-center justify-center">
@@ -49,10 +54,19 @@ const Home = () => {
 			<Suspense fallback={<Loader />}>
 				<Canvas
 					className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-					camera={{ near: 0.1, far: 1000 }}
+					camera={{
+						fov: 70, // Narrowing the FOV to bring the object closer
+						near: 0.1, // Allowing for closer near clipping
+						far: 100, // Extending the far clipping plane
+						position: [1, 1, 2],
+					}}
+
 				>
+					{/* <axesHelper args={[5]} /> */}
+					{/* <gridHelper args={[10, 10]} /> */}
+
 					<directionalLight position={[1, 10, 1]} intensity={3} />
-					<ambientLight intensity={0.5} />
+					<ambientLight intensity={0.1} />
 					<hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
 					{/* <pointLight /> */}
 					{/* <spotLight /> */}
@@ -60,13 +74,9 @@ const Home = () => {
 					{/* <Sky */}
 					{/* isRotating={isRotating} */}
 					{/* /> */}
-					<Venus position={[0, -0.2, 4.8]} />
-					{/* <Plane
-							planeScale={planeScale}
-							planePosition={planePosition}
-							isRotating={isRotating}
-							rotation={[0, 20, 0]}
-						/> */}
+					<ScrollControls pages={4} damping={0.25}>
+						<Venus position={[0, 0, 0]} />
+					</ScrollControls>
 				</Canvas>
 			</Suspense>
 		</section >
