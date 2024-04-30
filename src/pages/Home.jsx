@@ -8,9 +8,6 @@ import HomeInfo from '../components/HomeInfo'
 import Space from '../models/Space'
 
 
-
-
-
 const Home = () => {
 	const [isRotating] = useState(false)
 	const [currentStage, setCurrentStage] = useState(1)
@@ -46,24 +43,12 @@ const Home = () => {
 						fov: 70,
 						near: 0.1,
 						far: 1000,
-						position: [1, 3, 12],
+						position: [1, 4, 12],
 					}}
 
 				>
-					<axesHelper args={[5]} />
-					<gridHelper args={[10, 10]} />
-
-					<directionalLight position={[1, 10, 1]} intensity={3} />
-					<ambientLight intensity={0.1} />
-					<hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={1} />
-					{/* <pointLight /> */}
-					{/* <spotLight /> */}
-					{/* <Bird /> */}
-					{/* <Sky */}
-					{/* isRotating={isRotating} */}
-					{/* /> */}
 					<ScrollControls pages={4} damping={0.25}>
-						<Space position={[0, 0, 0]} />
+						<Space position={[0, -7, 0]} />
 					</ScrollControls>
 				</Canvas>
 			</Suspense>
