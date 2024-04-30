@@ -1,50 +1,38 @@
-import { Suspense, useState } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Loader from '../components/Loader'
 
 import { ScrollControls } from '@react-three/drei'
 
-import Venus from '../models/Venus'
-import Sky from '../models/Sky'
-import Bird from '../models/Bird'
-import Plane from '../models/Plane'
 import HomeInfo from '../components/HomeInfo'
+import Space from '../models/Space'
+
+
 
 
 
 const Home = () => {
-	const [isRotating, setIsRotating] = useState(false)
+	const [isRotating] = useState(false)
 	const [currentStage, setCurrentStage] = useState(1)
 
-	const adjustIslandForScreenSize = () => {
-		let screenScale = null
-		let screenPosition = [0, -6.5, -43]
-		let rotation = [0.1, 4.7, 0]
-
-		if (window.innerWidth < 768) {
-			screenScale = [0.9, 0.9, 0.9]
-			screenPosition = [0, -6.5, -43]
-		} else {
-			screenScale = [1, 1, 1]
+	useEffect(() => {
+		const handleScroll = () => {
+			const scrollY = window.scrollY
+			if (scrollY >= 0 && scrollY < 500) {
+				setCurrentStage(1);
+			} else if (scrollY >= 500 && scrollY < 1000) {
+				setCurrentStage(2);
+			} else if (scrollY >= 1000 && scrollY < 1500) {
+				setCurrentStage(3);
+			} else {
+				setCurrentStage(4);
+			}
 		}
-		return [screenScale, screenPosition, rotation]
-	}
-
-	const adjustPlaneForScreenSize = () => {
-		let screenScale, screenPosition
-
-		if (window.innerWidth < 768) {
-			screenScale = [1.5, 1.5, 1.5]
-			screenPosition = [0, -1.5, 0]
-		} else {
-			screenScale = [3, 3, 3]
-			screenPosition = [0, -4, -4]
+		window.addEventListener('scroll', handleScroll)
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
 		}
-		return [screenScale, screenPosition]
-	}
-	const [islandScale, islandPosition, islandRotation] = adjustIslandForScreenSize()
-	const [planeScale, planePosition] = adjustPlaneForScreenSize()
-
+	}, [])
 
 	return (
 		<section className="w-full h-screen relative">
@@ -55,15 +43,15 @@ const Home = () => {
 				<Canvas
 					className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
 					camera={{
-						fov: 70, // Narrowing the FOV to bring the object closer
-						near: 0.1, // Allowing for closer near clipping
-						far: 100, // Extending the far clipping plane
-						position: [1, 1, 2],
+						fov: 70,
+						near: 0.1,
+						far: 1000,
+						position: [1, 3, 12],
 					}}
 
 				>
-					{/* <axesHelper args={[5]} /> */}
-					{/* <gridHelper args={[10, 10]} /> */}
+					<axesHelper args={[5]} />
+					<gridHelper args={[10, 10]} />
 
 					<directionalLight position={[1, 10, 1]} intensity={3} />
 					<ambientLight intensity={0.1} />
@@ -75,7 +63,7 @@ const Home = () => {
 					{/* isRotating={isRotating} */}
 					{/* /> */}
 					<ScrollControls pages={4} damping={0.25}>
-						<Venus position={[0, 0, 0]} />
+						<Space position={[0, 0, 0]} />
 					</ScrollControls>
 				</Canvas>
 			</Suspense>
