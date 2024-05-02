@@ -6,6 +6,7 @@ import { ScrollControls } from '@react-three/drei'
 
 import HomeInfo from '../components/HomeInfo'
 import Space from '../models/Space'
+import { Overlay } from '../models/Overlay'
 
 
 const Home = () => {
@@ -28,8 +29,9 @@ const Home = () => {
 					}}
 				>
 					<color attach="background" args={["black"]} />
-					<ScrollControls pages={4} damping={0.25} >
+					<ScrollControls pages={5} damping={0.25} >
 						<Space setCurrentStage={setCurrentStage} />
+						<Overlay />
 					</ScrollControls>
 				</Canvas>
 			</Suspense>
