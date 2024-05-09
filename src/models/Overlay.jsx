@@ -1,6 +1,7 @@
 import { Scroll, useScroll } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import { useState } from "react"
+import { Contact } from "../components/Contacts";
 
 
 const Section = (props) => {
@@ -33,6 +34,7 @@ export const Overlay = () => {
   useFrame(() => {
     const firstTransitionStart = 0
     const transitionDuration = 1 / 5
+
 
     setOpacityFirstSection(1 - scroll.curve(firstTransitionStart, transitionDuration))
 
@@ -78,7 +80,7 @@ export const Overlay = () => {
         </Section>
         <Section opacity={opacityFifthSection}>
           <h1 className="leading-loose text-3xl mb-10">
-            ADFLKJNADF;BKADJNB;AD
+            <Contact />
           </h1>
         </Section>
       </div>
