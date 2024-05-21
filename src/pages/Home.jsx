@@ -7,6 +7,8 @@ import { ScrollControls } from '@react-three/drei'
 import HomeInfo from '../components/HomeInfo'
 import Space from '../models/Space'
 import { Overlay } from '../models/Overlay'
+import Carousel from '../models/Carousel'
+
 
 
 const Home = () => {
@@ -34,6 +36,7 @@ const Home = () => {
 						<Overlay />
 					</ScrollControls>
 				</Canvas>
+				<Carousel />
 			</Suspense>
 		</section >
 	)
