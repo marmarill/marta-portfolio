@@ -3,6 +3,9 @@ import { Contact } from "../components/Contacts";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Scroll } from "@react-three/drei"
 
+
+
+
 const Carousel = () => {
   return (
     <HorizontalScrollCarousel />
@@ -15,12 +18,12 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   })
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-100%"])
+  const x = useTransform(scrollYProgress, [0, 1], ["25%", "-100%"])
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-4">
+        <motion.div style={{ x }} className="flex gap-80">
           {parts.map((part) => {
             return <Part part={part} key={part.id} />
           })}
@@ -34,9 +37,9 @@ const Part = ({ part }) => {
   return (
     <div
       key={part.id}
-      className="group relative h-[450px] w-[450px] overflow-hidden"
+      className=" relative h-[450px] w-[32rem] overflow-hidden"
     >
-      <p className="absolute bg-white inset-0 z-0 transition-transform duration-300 ">
+      <p className="absolute text-2xl bg-transparent text-white inset-0 z-0 transition-transform duration-300 ">
         {part.text}
       </p>
     </div>
@@ -47,35 +50,18 @@ export default Carousel
 
 const parts = [
   {
-    text: "text 1",
+    text: "Aspiring frontend developer with a passion for creating engaging user experiences. Self-driven and committed to continuous learning, I am on a journey to cultivate my skills and make a meaningful impact in the digital world. Eager to contribute to innovative projects and connect with like-minded professionals in the software development field.",
     id: 1,
   },
   {
-    text: "text 2",
+    text: ` During my last year at the Latvian Art Academy, I discovered my interest in frontend development and began to teach myself
+    the necessary skills. I took digital courses, worked on various projects, and learned a lot along the way.
+    I’m always looking to improve and learn more about frontend development.`,
     id: 2,
   },
   {
-    text: "text 3",
+    text: ` Recently, I built a portfolio website
+    for a graphic designer, which was a valuable experience and reinforced my commitment to becoming a better frontend developer. For this project i used technologies such as React.js, HTML, Javascript and CSS. You can visit the website <a href="https://elizabetebusevica.com/" target="_blank" className="underline">here</a>`,
     id: 3,
-  },
-  {
-
-    text: "text 4",
-    id: 4,
-  },
-  {
-
-    text: "text 5",
-    id: 5,
-  },
-  {
-
-    text: "text 6",
-    id: 6,
-  },
-  {
-
-    text: "text 7",
-    id: 7,
-  },
+  }
 ];
