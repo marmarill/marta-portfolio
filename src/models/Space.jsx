@@ -19,29 +19,7 @@ const Space = ({ setCurrentStage, ...props }) => {
 
   })
   console.log('scroll offset', scroll.offset)
-  useEffect(() => {
-    const rotation = groupRef.current.rotation.y
-    const normalizedRotation = ((rotation % fullRotation) + fullRotation) % fullRotation
 
-    console.log('normalizedRotation', normalizedRotation)
-
-    switch (true) {
-      case normalizedRotation >= 0.25 && normalizedRotation <= 1:
-        setCurrentStage(4)
-        break
-      case normalizedRotation >= 0.85 && normalizedRotation <= 0.3:
-        setCurrentStage(3)
-        break
-      case normalizedRotation >= 0.4 && normalizedRotation <= 0.6:
-        setCurrentStage(2)
-        break
-      case normalizedRotation >= 0.5 && normalizedRotation <= 0.8:
-        setCurrentStage(1)
-        break
-      default:
-        setCurrentStage(null)
-    }
-  }, [scroll.offset])
 
   return (
 
