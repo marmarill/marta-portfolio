@@ -23,7 +23,7 @@ const HorizontalScrollCarousel = () => {
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-80">
+        <motion.div style={{ x }} className="flex gap-80 ">
           {parts.map((part) => {
             return <Part part={part} key={part.id} />
           })}
@@ -37,7 +37,7 @@ const Part = ({ part }) => {
   return (
     <div
       key={part.id}
-      className=" relative h-[450px] w-[32rem] overflow-hidden"
+      className=" relative h-[450px] w-96 overflow-hidden p-10"
     >
       <p className="absolute text-2xl bg-transparent text-white inset-0 z-0 transition-transform duration-300 ">
         {part.text}
@@ -50,12 +50,12 @@ export default Carousel
 
 const parts = [
   {
-    text: "Aspiring frontend developer with a passion for creating engaging user experiences. Self-driven and committed to continuous learning, I am on a journey to cultivate my skills and make a meaningful impact in the digital world. Eager to contribute to innovative projects and connect with like-minded professionals in the software development field.",
+    text: ` During my last year at the Latvian Art Academy, I discovered my interest in frontend development and began to teach myself
+    the necessary skills.`,
     id: 1,
   },
   {
-    text: ` During my last year at the Latvian Art Academy, I discovered my interest in frontend development and began to teach myself
-    the necessary skills. I took digital courses, worked on various projects, and learned a lot along the way.
+    text: `I took digital courses, worked on various projects, and learned a lot along the way.
     I’m always looking to improve and learn more about frontend development.`,
     id: 2,
   },

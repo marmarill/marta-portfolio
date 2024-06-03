@@ -13,13 +13,11 @@ import Carousel from '../models/Carousel'
 
 const Home = () => {
 
-	const [currentStage, setCurrentStage] = useState(1)
+
 
 	return (
 		<section className="w-full h-screen relative">
-			<div className="absolute top-28 left-0 right-0 z-20 flex items-center justify-center">
-				{currentStage && <HomeInfo currentStage={currentStage} />}
-			</div>
+
 			<Suspense fallback={<Loader />}>
 				<Canvas
 					className={`w-full h-screen`}
@@ -31,12 +29,12 @@ const Home = () => {
 					}}
 				>
 					<color attach="background" args={["black"]} />
-					<ScrollControls pages={5} damping={0.25} >
-						<Space setCurrentStage={setCurrentStage} />
+					<ScrollControls pages={3} damping={0.25} >
+						<Space />
 						<Overlay />
 					</ScrollControls>
 				</Canvas>
-				<Carousel />
+				{/* <Carousel /> */}
 			</Suspense>
 		</section >
 	)

@@ -3,6 +3,7 @@ import { Contact } from "../components/Contacts";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Scroll } from "@react-three/drei"
 import Carousel from "./Carousel";
+import { Link } from "react-router-dom";
 
 
 const Section = (props) => {
@@ -81,29 +82,18 @@ export const Overlay = () => {
             <p className="text-white text-4xl">I am self taught Frontend Developer</p>
           </div>
         </Section>
-        <Section >
-          <div>
-            <h1 className="text-4xl leading-loose">
-              Aspiring frontend developer with a passion for creating engaging user experiences.
-            </h1>
-          </div>
-        </Section>
         <Section>
           <h1 className="leading-loose text-3xl mb-10">
-            During my last year at the Latvian Art Academy, I discovered my interest in frontend development and began to teach myself
-            the necessary skills.
+            Aspiring frontend developer with a passion for creating engaging user experiences. Self-driven and committed to continuous learning, I am on a journey to cultivate my skills and make a meaningful impact in the digital world. Eager to contribute to innovative projects and connect with like-minded professionals in the software development field.
           </h1>
         </Section>
-        <Section >
-          <h1 className="leading-loose text-3xl mb-10">
-            Recently, I built a portfolio website
-            for a graphic designer
+        <Section>
+          <h1 className="text-white text-4xl mb-10">
+            More about me
           </h1>
-        </Section>
-        <Section >
-          <h1 className="leading-loose text-3xl mb-10">
-            <Contact />
-          </h1>
+          <button className="leading-loose text-3xl mb-10">
+            <a href="/about">Click here</a>
+          </button>
         </Section>
       </div>
     </Scroll>
