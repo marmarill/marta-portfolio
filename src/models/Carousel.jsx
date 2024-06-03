@@ -1,8 +1,6 @@
-import { useRef } from "react";
-import { Contact } from "../components/Contacts";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Scroll } from "@react-three/drei"
-
+import { useRef } from "react"
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
+import { useInView } from "framer-motion"
 
 
 
@@ -18,12 +16,14 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   })
 
-  const x = useTransform(scrollYProgress, [0, 1], ["25%", "-100%"])
+  const x = useTransform(scrollYProgress, [0, 1], ["20%", "-100%"])
 
   return (
     <section ref={targetRef} className="relative h-[300vh]">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-        <motion.div style={{ x }} className="flex gap-80 ">
+        <motion.div style={{ x }} initial={{ y: 20 }}
+          transition={{ ease: 'easeInOut', duration: 0.9 }}
+          className="flex gap-[458px]">
           {parts.map((part) => {
             return <Part part={part} key={part.id} />
           })}
@@ -34,17 +34,26 @@ const HorizontalScrollCarousel = () => {
 }
 
 const Part = ({ part }) => {
+  const ref = useRef(null)
+  const isInView = useInView(ref, {
+    margin: "0px 200px 0px 200px"
+  })
   return (
-    <div
-      key={part.id}
-      className=" relative h-[450px] w-96 overflow-hidden p-10"
-    >
-      <p className="absolute text-2xl bg-transparent text-white inset-0 z-0 transition-transform duration-300 ">
+    <motion.div
+      className="relative h-[450px] w-[36rem] overflow-hidden text-center">
+      <motion.p className="absolute text-4xl bg-transparent text-white inset-0 z-0 transition-transform duration-300 self-center"
+        ref={ref}
+        style={{
+          opacity: isInView ? 1 : 0,
+          transition: "opacity 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+          amount: 0.5
+        }}
+      >
         {part.text}
-      </p>
-    </div>
-  );
-};
+      </motion.p>
+    </motion.div>
+  )
+}
 
 export default Carousel
 
@@ -56,12 +65,11 @@ const parts = [
   },
   {
     text: `I took digital courses, worked on various projects, and learned a lot along the way.
-    I’m always looking to improve and learn more about frontend development.`,
+    `,
     id: 2,
   },
   {
-    text: ` Recently, I built a portfolio website
-    for a graphic designer, which was a valuable experience and reinforced my commitment to becoming a better frontend developer. For this project i used technologies such as React.js, HTML, Javascript and CSS. You can visit the website <a href="https://elizabetebusevica.com/" target="_blank" className="underline">here</a>`,
+    text: `I’m always looking to improve and learn more about frontend development.`,
     id: 3,
   }
 ];
