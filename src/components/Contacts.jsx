@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import { ToonShaderHatching } from 'three/examples/jsm/Addons.js';
+import React, { useRef } from 'react'
+import emailjs from '@emailjs/browser'
 
 export const Contact = () => {
   const form = useRef();
@@ -17,13 +16,13 @@ export const Contact = () => {
       )
       .then(
         () => {
-          console.log('SUCCESS!');
+          console.log('SUCCESS!')
         },
         (error) => {
-          console.log('FAILED...', error);
+          console.log('FAILED...', error)
         },
-      );
-  };
+      )
+  }
 
   return (
     <form ref={form} onSubmit={sendEmail}>
@@ -43,5 +42,5 @@ export const Contact = () => {
         <input type="submit" value="Send" className='cursor-pointer hover:text-slate-300 transition ease-in-out duration-300' />
       </div>
     </form>
-  );
-};
+  )
+}
