@@ -13,10 +13,10 @@ const SkillSection = () => {
   ]
 
   return (
-    <div className=" max-w-4xl w-full grid grid-cols-2 gap-10 items-center justify-center">
+    <div className=" max-w-4xl w-full grid grid-cols-2 gap-10 justify-center max-sm:gap-4 max-sm:grid-cols-1 ">
       {skills.map((skill, index) => (
-        <div key={index} className="flex flex-row items-center mb-4 justify-between">
-          <p className="text-4xl text-white mr-4">{skill.name}</p>
+        <div key={index} className="flex flex-row self-center justify-between">
+          <p className="text-4xl text-white mr-4 max-sm:text-xl">{skill.name}</p>
           <Circle fillAmount={skill.level} />
         </div>
       ))}

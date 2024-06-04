@@ -6,7 +6,7 @@ const Circle = ({ fillAmount }) => {
   const isInView = useInView(ref, { threshold: 0.5 })
 
   return (
-    <div ref={ref} className="relative flex items-center justify-center h-10 w-10" style={{
+    <div ref={ref} className="relative flex items-center justify-center h-10 w-10 max-sm:w-6 max-sm:h-6" style={{
       transform: 'rotate(90deg)'
     }}>
       <svg className="absolute top-0 left-0 w-full h-full">

@@ -11,7 +11,7 @@ const Section = (props) => {
   })
 
   return (
-    <section className={` h-screen flex flex-col justify-center p-10 items-center`}>
+    <section className={` h-screen flex flex-col justify-center  items-center`}>
       <motion.div ref={{ ref }} initial={{ y: 20, opacity: 0 }}
         transition={{ ease: 'easeInOut', duration: 0.9 }}
         whileInView={{ opacity: 1 }}

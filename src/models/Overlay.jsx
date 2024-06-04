@@ -9,10 +9,10 @@ export const Overlay = () => {
       <div className="w-screen">
         <Section >
           <div>
-            <h1 className="font-semibold text-5xl mb-10">
+            <h1 className=" font-semibold text-5xl mb-10 max-sm:text-2xl">
               Hello, I'm Marta Marija Ločmele!
             </h1>
-            <p className="text-white text-4xl">I am a self taught Frontend Developer</p>
+            <p className="text-white text-4xl max-sm:text-xl">I am a self taught Frontend Developer</p>
           </div>
         </Section>
         <Section>
@@ -55,6 +55,6 @@ export const Overlay = () => {
   )
 }
 
-export const Text = ({ children }) => <h1 className="leading-loose text-3xl mb-10">
+export const Text = ({ children }) => <h1 className="leading-loose text-3xl mb-10 max-sm:text-xl ">
   {children}
 </h1>
