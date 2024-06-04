@@ -27,20 +27,23 @@ export const Contact = () => {
   return (
     <form ref={form} onSubmit={sendEmail}>
       <div className='flex items-center flex-col mb-8'>
-        <h1 className='mb-8'>Contact me</h1>
+        <h1 className='leading-loose text-3xl mb-6'>Contact me</h1>
         <div className='flex flex-col content-between'>
           <div className='flex flex-row mb-8'>
-            <input type="text" name="user_name" placeholder='Name' className='p-2 text-xl  text-black rounded-sm max-w-52 shadow-inner shadow-slate-600' />
+            <Input type={"text"} name={"user_name"} placeholder={"Name"} />
           </div>
           <div className='flex flex-row mb-8'>
-            <input type="email" name="user_email" placeholder='E-mail' className='p-2 text-xl text-black rounded-sm max-w-52 shadow-inner shadow-slate-600' />
+            <Input type={"email"} name={"user_email"} placeholder={"E-mail"} />
           </div>
           <div className='flex flex-row mb-8 '>
-            <textarea name="message" placeholder='Message' className=' p-2 text-xl text-black rounded-sm max-w-52 shadow-inner shadow-slate-600 focus: border-none' />
+            <textarea name="message" placeholder='Message' className=' text-xl text-white max-w-52 bg-transparent box-border  border-b-2 border-white ' />
           </div>
         </div>
-        <input type="submit" value="Send" className='cursor-pointer hover:text-slate-300 transition ease-in-out duration-300' />
+        <input type="submit" value="Send" className='cursor-pointer text-xl hover:text-slate-300 transition ease-in-out duration-300' />
       </div>
     </form>
   )
 }
+export const Input = ({ type, name, placeholder }) => <input
+  type={type} name={name} placeholder={placeholder} className='p-2 text-xl text-white max-w-52 bg-transparent box-border  border-b-2 border-white ' />
+
