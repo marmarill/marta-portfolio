@@ -9,18 +9,7 @@ export const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_ihp01ka', 'template_x6fhwwd', form.current, {
-        publicKey: 'ba-ZJdp5A8YXwEVMU',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
+      
 
   return (
     <form ref={form} onSubmit={sendEmail}>
