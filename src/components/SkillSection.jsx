@@ -4,12 +4,12 @@ import Circle from "./Circle"
 const SkillSection = () => {
 
   const skills = [
-    { name: "HTML", level: 0.80 },
-    { name: "CSS", level: 0.60 },
-    { name: "JavaScript", level: 0.50 },
-    { name: "React.js", level: 0.35 },
+    { name: "HTML", level: 0.60 },
+    { name: "CSS", level: 0.70 },
+    { name: "JavaScript", level: 0.40 },
+    { name: "React.js", level: 0.30 },
     { name: "Node.js", level: 0.30 },
-    { name: "Next.js", level: 0.30 },
+    { name: "Next.js", level: 0.20 },
   ]
 
   return (
