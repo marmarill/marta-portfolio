@@ -43,15 +43,7 @@ const Space = ({ setCurrentStage, ...props }) => {
           rotation={[-Math.PI / 2.5, 0, -Math.PI / 2]}
           scale={20.408}
         />
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube_Material001_0.geometry}
-          material={materials['Material.001']}
-          position={[0, -101.673, 0]}
-          rotation={[-Math.PI / 2, 0, 0]}
-          scale={[1120.013, 1120.013, 100]}
-        />
+
       </group>
     </a.group>
   )
