@@ -1,12 +1,24 @@
-import React, { useRef } from 'react'
+import React, { useRef, useCallback } from 'react'
 import emailjs from '@emailjs/browser'
+
+function debounce(func, duration) {
+  let timeout
+
+  return function (...args) {
+    const effect = () => {
+      timeout = null
+      return func.apply(this, args)
+    }
+
+    clearTimeout(timeout)
+    timeout = setTimeout(effect, duration)
+  }
+}
 
 export const Contact = () => {
   const form = useRef();
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
+  const sendEmail = useCallback(debounce(() => {
     emailjs
       .sendForm(
         import.meta.env.VITE_FORM_SERVICE_ID,
@@ -22,10 +34,15 @@ export const Contact = () => {
           console.log('FAILED...', error)
         },
       )
+  }, 500), [])
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    sendEmail()
   }
 
   return (
-    <form ref={form} onSubmit={sendEmail}>
+    <form ref={form} onSubmit={handleSubmit}>
       <div className='flex items-center flex-col mb-8'>
         <h1 className='leading-loose text-3xl mb-6'>Contact me</h1>
         <div className='flex flex-col content-between'>
@@ -44,6 +61,11 @@ export const Contact = () => {
     </form>
   )
 }
-export const Input = ({ type, name, placeholder }) => <input
-  type={type} name={name} placeholder={placeholder} className='p-2 text-xl text-white max-w-52 bg-transparent box-border  border-b-2 border-white ' />
+export const Input = ({ type, name, placeholder }) =>
+  <input
+    type={type}
+    name={name}
+    placeholder={placeholder}
+    className='p-2 text-xl text-white max-w-52 bg-transparent box-border  border-b-2 border-white '
+  />
 
