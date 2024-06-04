@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import './Contacts.css'
+import { ToonShaderHatching } from 'three/examples/jsm/Addons.js';
 
 export const Contact = () => {
   const form = useRef();
@@ -9,15 +9,18 @@ export const Contact = () => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_ihp01ka', 'template_x6fhwwd', form.current, {
-        publicKey: 'ba-ZJdp5A8YXwEVMU',
-      })
+      .sendForm(
+        import.meta.env.VITE_FORM_SERVICE_ID,
+        import.meta.env.VITE_FORM_TEMPLATE_ID,
+        form.current,
+        { publicKey: import.meta.env.VITE_FORM_API_KEY }
+      )
       .then(
         () => {
           console.log('SUCCESS!');
         },
         (error) => {
-          console.log('FAILED...', error.text);
+          console.log('FAILED...', error);
         },
       );
   };
