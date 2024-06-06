@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { useGLTF, useScroll } from '@react-three/drei'
 import { a } from '@react-spring/three'
 import spaceScene from '../assets/3d/space.glb'

@@ -22,7 +22,7 @@ const Circle = ({ fillAmount }) => {
           cx="50%"
           cy="50%"
           r="40%"
-          stroke="#ff0055"
+          stroke="#d10300"
           strokeWidth="20%"
           fill="none"
           initial={{ pathLength: 0 }}

@@ -8,15 +8,14 @@
   outline: none;
 }
 
+
 :root {
   --blue-rgb: 237 245 255;
   --green-rgb: 125 161 35;
-
 }
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  background-color: #000000;
 }
 
 body:has(.card[data-color="blue"]:hover) {
