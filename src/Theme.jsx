@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { HiOutlineLightBulb, HiLightBulb } from 'react-icons/hi'
 
 
 const Theme = () => {
@@ -14,24 +15,24 @@ const Theme = () => {
   }, [])
 
   useEffect(() => {
-    if(darkMode) {
+    if (darkMode) {
       document.documentElement.classList.add('dark')
       localStorage.setItem("theme", "dark")
     } else {
       document.documentElement.classList.remove('dark')
       localStorage.setItem("theme", "light")
     }
-  },[darkMode])
+  }, [darkMode])
   return (
-    <div 
-    className='w-8 h-8 dark:bg-white bg-lime-500 
-    cursor-pointer'
-    onClick={() => setDarkMode(!darkMode)}
+    <div
+      className='w-16 h-16 cursor-pointer flex items-center justify-center'
+      onClick={() => setDarkMode(!darkMode)}
     >
-     <p className='text-white'>bleebloop</p>
-     <div w-8 h-8 dark:bg-lime-500 bg-white >
-      <p>fhfohe</p>
-     </div>
+      {darkMode ? (
+        <HiLightBulb className='text-white w-10 h-10 animate-bounce' />
+      ) : (
+        <HiOutlineLightBulb className='text-black w-10 h-10 animate-bounce' />
+      )}
     </div>
   )
 }

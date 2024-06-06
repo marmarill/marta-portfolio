@@ -6,8 +6,7 @@ import Theme from '../Theme'
 const Footer = () => {
 
   return (
-    <div className='fixed bg-red-600 bottom-0 z-50'>
-      Footer Footer Footer
+    <div className='fixed bottom-5 left-5 z-50'>
       <Theme />
     </div>
   )

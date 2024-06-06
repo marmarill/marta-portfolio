@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 const Home = () => {
 
 	return (
-		<section className="w-full h-screen relative bg-neutral-500 dark:bg-black">
+		<section className="w-full h-screen relative bg-neutral-500 dark:bg-black transition-colors ease-in-out duration-1000">
 			<Suspense fallback={<Loader />}>
 				<Canvas
 					className={`w-full h-screen`}
