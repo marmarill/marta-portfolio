@@ -1,5 +1,10 @@
 import React, { useRef, useCallback } from 'react'
 import emailjs from '@emailjs/browser'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
 
 function debounce(func, duration) {
   let timeout
@@ -16,7 +21,8 @@ function debounce(func, duration) {
 }
 
 export const Contact = () => {
-  const form = useRef();
+  const form = useRef()
+
 
   const sendEmail = useCallback(debounce(() => {
     emailjs
@@ -28,10 +34,10 @@ export const Contact = () => {
       )
       .then(
         () => {
-          console.log('SUCCESS!')
+          toast("Success!")
         },
         (error) => {
-          console.log('FAILED...', error)
+          toast("Something went wrong...")
         },
       )
   }, 500), [])
