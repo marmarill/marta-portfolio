@@ -16,9 +16,9 @@ const Section = (props) => {
         transition={{ ease: 'easeInOut', duration: 0.9 }}
         whileInView={{ opacity: 1 }}
         viewport={{ margin: "-200px" }}
-        style={{ opacity: scrollYProgress }} className="relative max-h-screen flex items-center justify-center text-[#351212] dark:text-white transition-all duration-100 text-center font-300 ">
+        style={{ opacity: scrollYProgress }} className="relative max-h-screen flex items-center justify-center text-[#351212] dark:text-white text-center font-300 ">
         <div className=" max-w-4xl w-full ">
-          <div className=" px-8 py-12 bg-slate-300/0">
+          <div className=" px-8 py-12 bg-slate-300/0 ">
             {props.children}
           </div>
         </div>
