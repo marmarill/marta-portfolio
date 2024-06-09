@@ -31,7 +31,7 @@ const Theme = () => {
       {darkMode ? (
         <HiLightBulb className='text-white w-10 h-10 animate-bounce' />
       ) : (
-        <HiOutlineLightBulb className='text-black w-10 h-10 animate-bounce' />
+        <HiOutlineLightBulb className='text-[#2b1111] w-10 h-10 animate-bounce' />
       )}
     </div>
   )

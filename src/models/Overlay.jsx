@@ -3,16 +3,20 @@ import { Scroll } from "@react-three/drei"
 import SkillSection from "../components/SkillSection";
 import Section from "../components/Section";
 
+const commonStyles = 'transition-all duration-300'
+
+
 export const Overlay = () => {
+
   return (
     <Scroll html>
       <div className="w-screen">
         <Section >
           <div>
-            <h1 className=" font-semibold text-5xl mb-10 max-sm:text-2xl">
+            <h1 className={`font-semibold text-5xl mb-10 max-sm:text-2xl ${commonStyles}`}>
               Hello, I'm Marta Marija Ločmele!
             </h1>
-            <p className="text-4xl max-sm:text-xl">I am a self taught Frontend Developer</p>
+            <p className={`text-4xl max-sm:text-xl ${commonStyles}`}>I am a self taught Frontend Developer</p>
           </div>
         </Section>
         <Section>
@@ -55,6 +59,6 @@ export const Overlay = () => {
   )
 }
 
-export const Text = ({ children }) => <h1 className="leading-loose text-3xl mb-10 max-sm:text-xl ">
+export const Text = ({ children }) => <h1 className={`leading-loose text-3xl mb-10 max-sm:text-xl ${commonStyles}`}>
   {children}
 </h1>
