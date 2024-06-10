@@ -46,7 +46,7 @@ export const Overlay = () => {
         </Section>
         <Section>
           <Text>
-            Aside from that, I have been actively involved in a web-based game project called <a href="https://morby.lyricblaster.com/" target="_blank" className="underline"> Lyricblaster</a>. I have been working closely with the owner of the project, gaining valuable experience and knowledge.
+            Aside from that, I have been actively involved in a web-based game project called <a href="https://www.facebook.com/LyricBlasterAlpha" target="_blank" className="underline"> Lyricblaster</a>. I have been working closely with the owner of the project, gaining valuable experience and knowledge.
             So far, I have successfully created several components for the project that aid the functionality of the game.
           </Text>
         </Section>
