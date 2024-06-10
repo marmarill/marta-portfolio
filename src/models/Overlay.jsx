@@ -57,6 +57,12 @@ export const Overlay = () => {
           <SkillSection />
         </Section>
         <Section>
+          <Text>
+            If you're interested in seeing the code for this and other projects, check out my GitHub profile! <br />
+            <a href="https://github.com/marmarill" target="_blank" className="underline"> Click here</a>
+          </Text>
+        </Section>
+        <Section>
           <Contact />
         </Section>
       </div>
