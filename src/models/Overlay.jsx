@@ -13,10 +13,10 @@ export const Overlay = () => {
       <div className="w-screen">
         <Section >
           <div>
-            <h1 className={`font-semibold text-5xl mb-10 max-sm:text-2xl ${commonStyles}`}>
+            <h1 className={`font-semibold text-5xl mb-10  max-sm:text-2xl ${commonStyles}`}>
               Hello, I'm Marta Marija Ločmele!
             </h1>
-            <p className={`text-4xl max-sm:text-xl ${commonStyles}`}>I am a self taught Frontend Developer</p>
+            <p className={`text-4xl  max-sm:text-xl ${commonStyles}`}>I am a self taught Frontend Developer</p>
           </div>
         </Section>
         <Section>
