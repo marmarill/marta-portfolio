@@ -6,7 +6,7 @@ export default {
     position: [1, 4, 12],
   },
   scrollControls: {
-    pages: 7,
+    pages: 8,
     damping: 0.25,
   }
 }

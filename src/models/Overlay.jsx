@@ -26,8 +26,14 @@ export const Overlay = () => {
         </Section>
         <Section>
           <Text>
-            During my last year at the Latvian Art Academy, I discovered my interest in frontend development and began to teach myself
-            the necessary skills. I took digital courses, worked on various projects, and learned a lot along the way.
+            During the final year of doing my Bachelor’s degree at the Art Academy of Latvia,
+            I discovered an interest in connecting art with aesthetic digital solutions, which lead me to begin exploring the world of programming.
+          </Text>
+        </Section>
+        <Section>
+          <Text>
+            I focused on frontend development and began to teach myself the skills necessary for creating innovative and accessible webpages that provide a seamless user experience.
+            I took digital courses, worked on different projects, and learned a lot along the way.
             I’m always looking to improve and learn more about frontend development.
           </Text>
         </Section>
@@ -40,7 +46,7 @@ export const Overlay = () => {
         </Section>
         <Section>
           <Text>
-            Aside from that, I have been actively involved in a web-based game project called <a href="https://morby.lyricblaster.com/" target="_blank" className="hover:text-slate-300"> Lyricblaster</a>. I have been working closely with the owner of the project, gaining valuable experience and knowledge.
+            Aside from that, I have been actively involved in a web-based game project called <a href="https://morby.lyricblaster.com/" target="_blank" className="underline"> Lyricblaster</a>. I have been working closely with the owner of the project, gaining valuable experience and knowledge.
             So far, I have successfully created several components for the project that aid the functionality of the game.
           </Text>
         </Section>
