@@ -32,14 +32,10 @@ export const Contact = () => {
       )
       .then(
         () => {
-          console.log('asd')
           toast.success("Success!")
-          console.log('asd')
         },
         (error) => {
-          console.log('err')
           toast.warning("Something went wrong...")
-          console.log('err')
         },
       )
   }, 500), [])
@@ -50,7 +46,7 @@ export const Contact = () => {
   }
 
   return (
-    <form ref={form} onSubmit={handleSubmit}>
+    <form ref={form} onSubmit={handleSubmit} className="relative">
       <div className='flex items-center flex-col mb-8'>
         <h1 className='leading-loose text-3xl mb-6'>Contact me</h1>
         <div className='flex flex-col content-between'>
