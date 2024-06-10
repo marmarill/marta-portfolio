@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from 'react'
+import React, { useRef, useCallback, useState } from 'react'
 import emailjs from '@emailjs/browser'
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,6 +20,7 @@ function debounce(func, duration) {
 
 export const Contact = () => {
   const form = useRef()
+  const [isEmailSent, setIsEmailSent] = useState(false)
 
 
   const sendEmail = useCallback(debounce(() => {
@@ -32,14 +33,11 @@ export const Contact = () => {
       )
       .then(
         () => {
-          console.log('asd')
           toast.success("Success!")
-          console.log('asd')
+          setIsEmailSent(true)
         },
         (error) => {
-          console.log('err')
           toast.warning("Something went wrong...")
-          console.log('err')
         },
       )
   }, 500), [])
@@ -50,25 +48,33 @@ export const Contact = () => {
   }
 
   return (
-    <form ref={form} onSubmit={handleSubmit}>
-      <div className='flex items-center flex-col mb-8'>
-        <h1 className='leading-loose text-3xl mb-6'>Contact me</h1>
-        <div className='flex flex-col content-between'>
-          <div className='flex flex-row mb-8'>
-            <Input type={"text"} name={"user_name"} placeholder={"Name"} />
-          </div>
-          <div className='flex flex-row mb-8'>
-            <Input type={"email"} name={"user_email"} placeholder={"E-mail"} />
-          </div>
-          <div className='flex flex-row mb-8 '>
-            <textarea name="message" placeholder='Message' className=' text-xl dark:text-white text-[#351212] max-w-52 
+    <>
+      {isEmailSent ? (
+        <div className="flex items-center justify-center h-screen">
+          <h1 className="text-3xl">Thank you for your message!</h1>
+        </div>
+      ) : (
+        <form ref={form} onSubmit={handleSubmit} className="relative">
+          <div className='flex items-center flex-col mb-8'>
+            <h1 className='leading-loose text-3xl mb-6'>Contact me</h1>
+            <div className='flex flex-col content-between'>
+              <div className='flex flex-row mb-8'>
+                <Input type={"text"} name={"user_name"} placeholder={"Name"} />
+              </div>
+              <div className='flex flex-row mb-8'>
+                <Input type={"email"} name={"user_email"} placeholder={"E-mail"} />
+              </div>
+              <div className='flex flex-row mb-8 '>
+                <textarea name="message" placeholder='Message' className=' text-xl dark:text-white text-[#351212] max-w-52 
             bg-transparent box-border border-b-2 dark:border-white border-[#351212]  
             placeholder:pt-4 placeholder:pl-2 placeholder:text-[#5a5252]' />
+              </div>
+            </div>
+            <input type="submit" value="Send" className='cursor-pointer text-xl hover:text-slate-300 transition ease-in-out duration-300' />
           </div>
-        </div>
-        <input type="submit" value="Send" className='cursor-pointer text-xl hover:text-slate-300 transition ease-in-out duration-300' />
-      </div>
-    </form>
+        </form>
+      )}
+    </>
   )
 }
 export const Input = ({ type, name, placeholder }) =>
