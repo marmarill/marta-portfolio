@@ -1,5 +1,8 @@
 import React, { useRef, useCallback } from 'react'
 import emailjs from '@emailjs/browser'
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function debounce(func, duration) {
   let timeout
@@ -16,7 +19,8 @@ function debounce(func, duration) {
 }
 
 export const Contact = () => {
-  const form = useRef();
+  const form = useRef()
+
 
   const sendEmail = useCallback(debounce(() => {
     emailjs
@@ -28,10 +32,14 @@ export const Contact = () => {
       )
       .then(
         () => {
-          console.log('SUCCESS!')
+          console.log('asd')
+          toast.success("Success!")
+          console.log('asd')
         },
         (error) => {
-          console.log('FAILED...', error)
+          console.log('err')
+          toast.warning("Something went wrong...")
+          console.log('err')
         },
       )
   }, 500), [])
@@ -53,7 +61,9 @@ export const Contact = () => {
             <Input type={"email"} name={"user_email"} placeholder={"E-mail"} />
           </div>
           <div className='flex flex-row mb-8 '>
-            <textarea name="message" placeholder='Message' className=' text-xl text-white max-w-52 bg-transparent box-border border-b-2 border-white  placeholder:pt-4 placeholder:pl-2 ' />
+            <textarea name="message" placeholder='Message' className=' text-xl dark:text-white text-[#351212] max-w-52 
+            bg-transparent box-border border-b-2 dark:border-white border-[#351212]  
+            placeholder:pt-4 placeholder:pl-2 placeholder:text-[#5a5252]' />
           </div>
         </div>
         <input type="submit" value="Send" className='cursor-pointer text-xl hover:text-slate-300 transition ease-in-out duration-300' />
@@ -66,6 +76,7 @@ export const Input = ({ type, name, placeholder }) =>
     type={type}
     name={name}
     placeholder={placeholder}
-    className='p-2 text-xl text-white max-w-52 bg-transparent box-border  border-b-2 border-white '
+    className='p-2 text-xl text-[#351212] dark:text-white max-w-52 bg-transparent box-border  
+    border-b-2 border-[#351212] dark:border-white placeholder:text-[#5a5252]'
   />
 

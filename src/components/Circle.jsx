@@ -15,6 +15,7 @@ const Circle = ({ fillAmount }) => {
           cy="50%"
           r="40%"
           stroke="#ccc"
+          className={'stroke-[#908b8b] dark:stroke-[#ccc] transition-all ease-linear duration-300'}
           strokeWidth="20%"
           fill="none"
         />
@@ -22,7 +23,7 @@ const Circle = ({ fillAmount }) => {
           cx="50%"
           cy="50%"
           r="40%"
-          stroke="#d10300"
+          className={'stroke-[#351212] dark:stroke-[#d10300] transition-all ease-linear duration-300'}
           strokeWidth="20%"
           fill="none"
           initial={{ pathLength: 0 }}

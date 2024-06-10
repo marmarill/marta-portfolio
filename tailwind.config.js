@@ -21,10 +21,14 @@ export default {
       },
       fontFamily: {
         worksans: ["Work Sans", "sans-serif"],
-        poppins: ['Poppins', "sans-serif"]
+        poppins: ['Poppins', "sans-serif"],
+        josefin: ["Josefin Sans"]
       },
       boxShadow: {
         card: '0px 1px 2px 0px rgba(0, 0, 0, 0.05)'
+      },
+      screens: {
+        xxs: "320px"
       }
     },
   },
