@@ -15,7 +15,7 @@ const Home = () => {
 			<ToastContainer
 				position="bottom-right"
 				hideProgressBar
-				autoClose={500}
+				autoClose={1000}
 				theme="light"
 			/>
 			<Suspense fallback={<Loader />}>
